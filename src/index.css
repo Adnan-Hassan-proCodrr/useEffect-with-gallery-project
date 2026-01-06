@@ -1,0 +1,135 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  min-height: 100vh;
+  font-family: "Inter", "Segoe UI", sans-serif;
+}
+
+body {
+  background: radial-gradient(circle at top, #0f2027, #020617);
+  color: #f1f5f9;
+}
+
+/* =================== HEADER =================== */
+h2 {
+  text-align: center;
+  padding: 1rem 0;
+  margin-bottom: 1.5rem;
+  font-size: 1.4rem;
+  font-weight: 600;
+  background: linear-gradient(90deg, #e0e7ff, #ffffff);
+  color: #020617;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+}
+
+/* =================== GALLERY =================== */
+.gallery-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 1.4rem;
+
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
+}
+
+/* =================== PHOTO CARD =================== */
+.photo-card {
+  position: relative;
+  border-radius: 14px;
+  overflow: hidden;
+  cursor: pointer;
+  background: #020617;
+  transition: transform 0.35s ease-in-out, box-shadow 0.35s ease-in-out;
+}
+
+.photo-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.65),
+    transparent
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.photo-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+}
+
+.photo-card:hover::after {
+  opacity: 1;
+}
+
+.photo-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease-in-out;
+}
+
+.photo-card:hover img {
+  transform: scale(1.1);
+}
+
+/* =================== BUTTONS =================== */
+.btns {
+  margin: 2.5rem 0;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+button {
+  width: 140px;
+  height: 44px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+
+  background: linear-gradient(135deg, #1e3a8a, #2563eb);
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 30px rgba(37, 99, 235, 0.6);
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* =================== RESPONSIVE =================== */
+@media (max-width: 600px) {
+  h2 {
+    font-size: 1.2rem;
+  }
+
+  button {
+    width: 120px;
+    height: 40px;
+  }
+}
